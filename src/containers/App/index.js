@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import config from './config/firebase-config';
+import config from '../../config/firebase-config';
 
 class App extends Component {
 	constructor(){
