@@ -27,9 +27,18 @@ class App extends Component {
 	}
 
 	render(){
+		/*Pass data to our child components so that the data can be available in
+		react-router */
 		return (
 			<div className="App">
-				Hello puppies!!
+				{this.props.children && React.cloneElement(
+					this.props.children,
+					{
+						firebaseRef: firebase.database().ref('posts'),
+						posts: this.state.posts,
+						loading: this.state.loading
+					}
+				)}
 			</div>
 			)
 	}
