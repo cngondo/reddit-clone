@@ -11,17 +11,19 @@ class Posts extends Component{
 				</div>
 			);
 		}
-	}
 
-	return(
-		<div className="Posts">
-			{this.props.map((post)=>{
-				return(
-					<div>
-						{ post.title }
-					</div>
-				);
-			})}
-		</div>
-	)
+		return(
+			<div className="Posts">
+				{this.props.posts.map((post, key)=>{
+					return(
+						<div>							
+							{ post.title }
+						</div>
+					);
+				})}
+			</div>
+		)
+	}
 }
+
+export default Posts;

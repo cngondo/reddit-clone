@@ -5,14 +5,19 @@ import config from '../../config/firebase-config';
 class App extends Component {
 	constructor(){
 		super();
-		// this.state = {
-		// 	posts: snapshot.val(),
-		// 	loading: false
-		// }
-		//initialize firebase
-		firebase.initializeApp(config);		 
-	}
 
+		this.state = {
+			posts: [],
+			loading: true
+		}
+		
+		//initialize firebase
+		if(!firebase.apps.length){
+			firebase.initializeApp(config);		 
+		}
+	}
+	
+	//Lifecycle hook to help mount the components 
 	componentWillMount(){
 		let postsRef = firebase.database().ref('posts');
 
@@ -27,11 +32,11 @@ class App extends Component {
 	}
 
 	render(){
-		/*Pass data to our child components so that the data can be available in
+		/* Pass data to our child components so that the data can be available in
 		react-router */
 		return (
 			<div className="App">
-				{this.props.children && React.cloneElement(
+				{ this.props.children && React.cloneElement(
 					this.props.children,
 					{
 						firebaseRef: firebase.database().ref('posts'),
