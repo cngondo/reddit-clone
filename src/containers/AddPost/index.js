@@ -25,11 +25,13 @@ class AddPost extends Component{
 
 		//the "firebaseRef" are the props passed down from the App component
 		//Sets the current value of title to our database
-		this.props.firebaseRef.push({
-			title: this.state.title
+		this.props.firebase.ref('posts').push({
+			title: this.state.title,
+			upvote: 0,
+			downvote: 0
 		});
 
-		// Ensures that the title is set to empty after submitting the value to the DB
+		// Ensures that the title is set to empty after submitting the value to the firebase DB
 		this.setState({
 			title: ''
 		});
@@ -43,7 +45,6 @@ class AddPost extends Component{
 					placeholder="Write the title of youre post"
 					onChange={ this.handleChange }
 					value={ this.state.title } />
-
 				<button type="submit" onClick={ this.handleSubmit }>SUBMIT</button> 
 			</div>
 		);

@@ -3,8 +3,8 @@ import * as firebase from 'firebase';
 import config from '../../config/firebase-config';
 
 class App extends Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
 		this.state = {
 			posts: [],
@@ -39,7 +39,7 @@ class App extends Component {
 				{ this.props.children && React.cloneElement(
 					this.props.children,
 					{
-						firebaseRef: firebase.database().ref('posts'),
+						firebaseRef: firebase.database(),
 						posts: this.state.posts,
 						loading: this.state.loading
 					}
