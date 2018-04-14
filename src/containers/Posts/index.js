@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 */
 class Posts extends Component{
 	render(){
+		let posts = this.props.posts;
+
 		if(this.props.loading){
 			return(
 				<div>
@@ -14,10 +16,11 @@ class Posts extends Component{
 
 		return(
 			<div className="Posts">
-				{this.props.posts.map((post, key)=>{
+			//Iterate over objects because firebase stores data in form of objects
+				{Object.keys(posts).map((key)=>{
 					return(
-						<div>							
-							{ post.title }
+						<div key = {key}>							
+							{ posts[key].title }
 						</div>
 					);
 				})}
