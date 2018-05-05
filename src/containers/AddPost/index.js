@@ -25,7 +25,7 @@ class AddPost extends Component{
 
 		//the "firebaseRef" are the props passed down from the App component
 		//Sets the current value of title to our database
-		this.props.firebase.ref('posts').push({
+		this.props.firebaseRef.ref('posts').push({
 			title: this.state.title,
 			upvote: 0,
 			downvote: 0

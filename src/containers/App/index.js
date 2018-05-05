@@ -36,8 +36,7 @@ class App extends Component {
 		react-router */
 		return (
 			<div className="App">
-				{ this.props.children && React.cloneElement(
-					this.props.children,
+				{this.props.children && React.cloneElement(this.props.children,
 					{
 						firebaseRef: firebase.database(),
 						posts: this.state.posts,
