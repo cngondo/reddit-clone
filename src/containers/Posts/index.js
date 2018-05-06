@@ -41,8 +41,8 @@ class Posts extends Component{
 					return(
 						<div key = {key}>							
 							<div>Title: { posts[key].title } </div>
-							<div>Title: { posts[key].upvote } </div>
-							<div>Title: { posts[key].downvote } </div>
+							<div>Upvote: { posts[key].upvote } </div>
+							<div>Downvote: { posts[key].downvote } </div>
 							<button onClick={this.handleUpVote.bind(this, posts[key], key)} type="button">UPVOTE</button>
 							<button onClick={this.handleDownVote.bind(this, posts[key], key)} type="button">DOWNVOTE</button>
 						</div>
